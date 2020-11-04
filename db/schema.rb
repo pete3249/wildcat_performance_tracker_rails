@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_201910) do
+ActiveRecord::Schema.define(version: 2020_11_04_202421) do
+
+  create_table "performance_tests", force: :cascade do |t|
+    t.string "notes"
+    t.string "result"
+    t.datetime "date_taken"
+    t.integer "user_id", null: false
+    t.integer "student_id", null: false
+    t.integer "test_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_performance_tests_on_student_id"
+    t.index ["test_type_id"], name: "index_performance_tests_on_test_type_id"
+    t.index ["user_id"], name: "index_performance_tests_on_user_id"
+  end
 
   create_table "students", force: :cascade do |t|
     t.string "first_name"
@@ -39,4 +53,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_201910) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "performance_tests", "students"
+  add_foreign_key "performance_tests", "test_types"
+  add_foreign_key "performance_tests", "users"
 end
