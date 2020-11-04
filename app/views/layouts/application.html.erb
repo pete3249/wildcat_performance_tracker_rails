@@ -10,6 +10,9 @@
   </head>
 
   <body>
+  <!-- Ensures that messages Devise generates, actually show up in HTML responses -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
