@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.first_or_create(name: "Katelyn Peterson", email: "katelynpeterson@westminster.net", password: "Sawyer123$")
+
+student = Student.first_or_create(first_name: "Connor", last_name: "Wesselman", grad_year: "2021")
+
+t1 = TestType.find_or_create_by(name: "Vertical Jump")
+t2 = TestType.find_or_create_by(name: "Broad Jump")
+ts = TestType.find_or_create_by(name: "40 Meter Sprint")
+
+p1 = student.performance_tests.find_or_create_by(result: "28 inches", date_taken: DateTime.strptime("07/04/2020 10:30", "%m/%d/%Y %H:%M"), user_id: 1, test_type_id: 1)
+p2 = student.performance_tests.find_or_create_by(result: "7 feet 6 inches", date_taken: DateTime.strptime("07/04/2020 10:45", "%m/%d/%Y %H:%M"), user_id: 1, test_type_id: 2)
+p3 = student.performance_tests.find_or_create_by(result: "4.78 seconds", date_taken: DateTime.strptime("07/04/2020 11:00", "%m/%d/%Y %H:%M"), user_id: 1, test_type_id: 3)
