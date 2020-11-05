@@ -1,5 +1,10 @@
 <h1>Student List</h1>
 
+<button><%= link_to "Add Student", new_student_path %></button>
+<br><br>
+
 <% @students.each do |student|%>
-    <%= link_to full_name(student), student_path(student)  %>
+    <p><%= link_to full_name(student), student_path(student) %></p>
 <% end %>
+
+
