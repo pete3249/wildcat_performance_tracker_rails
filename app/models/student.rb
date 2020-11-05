@@ -4,6 +4,6 @@ class Student < ApplicationRecord
     has_many :test_types, through: :performance_tests
 
     validates :first_name, :last_name, :grad_year, presence: true
-    validates :first_name, uniqueness: { scope: [:last_name, :grad_year], message: "Cannot add student. Student already exists."}
+    validates :first_name, uniqueness: { scope: [:last_name, :grad_year], message: "last name, and graduation year match an existing student"}
 
 end
