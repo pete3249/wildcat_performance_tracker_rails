@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_202421) do
+ActiveRecord::Schema.define(version: 2020_11_05_000514) do
 
   create_table "performance_tests", force: :cascade do |t|
     t.string "notes"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_202421) do
     t.string "grad_year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["first_name", "last_name", "grad_year"], name: "index_students_on_first_name_and_last_name_and_grad_year", unique: true
   end
 
   create_table "test_types", force: :cascade do |t|
