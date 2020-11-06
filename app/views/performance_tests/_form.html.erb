@@ -1,0 +1,30 @@
+<%= form_for performance_test do |f|%>
+    <%= show_errors_for(performance_test)%>
+    
+    <div>
+        <%= f.label :student_id, "Student:" %>
+        <%= f.collection_select :student_id, Student.all, :id, :name, prompt: true %>
+    </div>
+
+    <div>
+        <%= f.label :test_type_id, "Test Type:" %>
+        <%= f.collection_select :test_type_id, TestType.all, :id, :name, prompt: true %>
+    </div>
+
+    <div>
+        <%= f.label :notes, "Notes:" %>
+        <%= f.text_field :notes %>
+    </div>
+
+    <div>
+        <%= f.label :result, "Result:" %>
+        <%= f.text_field :result %>
+    </div>
+
+    <div>
+        <%= f.label :date_taken, "Date:" %>
+        <%= f.date_select :date_taken %>
+    </div>
+
+    <%= f.submit %>
+<% end %>
