@@ -1,0 +1,8 @@
+<h1>All Test Types</h1>
+
+<button><%= link_to "Add Test Type", new_test_type_path %></button>
+<br><br>
+
+<% @test_types.each do |type| %>
+    <p><%= link_to type.name, test_type_path(type) %></p>
+<% end %>
