@@ -27,12 +27,11 @@ ActiveRecord::Schema.define(version: 2020_11_05_000514) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.string "grad_year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["first_name", "last_name", "grad_year"], name: "index_students_on_first_name_and_last_name_and_grad_year", unique: true
+    t.index ["name", "grad_year"], name: "index_students_on_name_and_grad_year", unique: true
   end
 
   create_table "test_types", force: :cascade do |t|

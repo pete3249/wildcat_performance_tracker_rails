@@ -8,7 +8,7 @@
 
 user = User.first_or_create(name: "Katelyn Peterson", email: "katelynpeterson@westminster.net", password: "Sawyer123$")
 
-student = Student.first_or_create(first_name: "Connor", last_name: "Wesselman", grad_year: "2021")
+student = Student.first_or_create(name: "Connor Wesselman", grad_year: "2021")
 
 t1 = TestType.find_or_create_by(name: "Vertical Jump")
 t2 = TestType.find_or_create_by(name: "Broad Jump")
