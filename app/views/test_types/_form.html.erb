@@ -1,0 +1,10 @@
+<%= form_for test_type do |f|%>
+    <%= show_errors_for(test_type)%>
+    
+    <div>
+        <%= f.label :name, "Name:" %>
+        <%= f.text_field :name %>
+    </div>
+
+    <%= f.submit %>
+<% end %>
