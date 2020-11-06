@@ -1,0 +1,7 @@
+<h1>Performance Tests</h1>
+
+<% @performance_tests.each do |performance_test| %>
+    <p><%= performance_test.test_type.name %>: <%= performance_test.result %></p>
+<% end %>
+
+<button><%= link_to "Add Performance Test", new_performance_test_path %></button>
