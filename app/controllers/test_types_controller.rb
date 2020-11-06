@@ -1,6 +1,6 @@
 class TestTypesController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_test_type, only: [:show, :edit, :update, :destroy]
+    before_action :set_test_type, only: [:show, :edit, :update]
 
     def index
         @test_types = TestType.all
