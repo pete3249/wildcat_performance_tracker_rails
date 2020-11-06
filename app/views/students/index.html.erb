@@ -4,7 +4,7 @@
 <br><br>
 
 <% @students.each do |student|%>
-    <p><%= link_to full_name(student), student_path(student) %></p>
+    <p><%= link_to student.name, student_path(student) %></p>
 <% end %>
 
 
