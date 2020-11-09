@@ -6,6 +6,6 @@
     <%= submit_tag "Delete Student "%>
 <% end %> -->
 
-<%= button_to "Edit Student", { action: "edit"}, method: :get %>
-<br>
-<%= button_to "Delete Student", { action: "destroy"}, method: :delete, data: { confirm: "Are you sure?"} %>
+<%= button_to "Edit Student", { action: "edit"}, method: :get, form: {style: 'display:inline-block;'} %>
+
+<%= button_to "Delete Student", { action: "destroy"}, method: :delete, data: { confirm: "Are you sure?"}, form: {style: 'display:inline-block;'} %>

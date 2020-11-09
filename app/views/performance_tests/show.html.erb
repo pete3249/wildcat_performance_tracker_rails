@@ -9,5 +9,5 @@
     <p><%= @performance_test.notes %></p>
 <% end %>
 
-<%= button_to "Edit Performance Test", { action: "edit"}, method: :get %>
-<%= button_to "Delete Performance Test", { action: "destroy"}, method: :delete, data: { confirm: "Are you sure?"} %>
+<%= button_to "Edit Performance Test", { action: "edit"}, method: :get, form: {style: 'display:inline-block;'} %>
+<%= button_to "Delete Performance Test", { action: "destroy"}, method: :delete, data: { confirm: "Are you sure?"}, form: {style: 'display:inline-block;'} %>
