@@ -2,6 +2,8 @@ class TestTypesController < ApplicationController
     before_action :authenticate_user!
     before_action :set_test_type, only: [:show, :edit, :update]
 
+    rescue_from ActiveRecord::RecordNotFound, with: :handle_test_type_not_found
+
     def index
         @test_types = TestType.all
     end
@@ -32,6 +34,11 @@ class TestTypesController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def handle_test_type_not_found
+        flash[:error] = "Test type not found"
+        redirect_to test_types_path
     end
 
     private
