@@ -1,6 +1,6 @@
 <h1>Performance Tests</h1>
 
-<button><%= link_to "Add Performance Test", new_performance_test_path %></button>
+<%= button_to "Add Performance Test", { action: "new"}, method: :get %>
 
 <% @performance_tests.each do |performance_test| %>
     <p><%= link_to performance_test.student.name, student_path(performance_test.student) %>: <%= link_to performance_test.test_type.name, test_type_path(performance_test.test_type) %> - <%= link_to performance_test.result, performance_test_path(performance_test) %></p>
