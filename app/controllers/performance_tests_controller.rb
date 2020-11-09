@@ -1,6 +1,8 @@
 class PerformanceTestsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_performance_test, only: [:edit, :update, :destroy]
+    
+    rescue_from ActiveRecord::RecordNotFound, with: :handle_performance_test_not_found
 
     def index
         @performance_tests = PerformanceTest.all
@@ -28,7 +30,7 @@ class PerformanceTestsController < ApplicationController
 
     def update
         if @performance_test.update(performance_test_params)
-            redirect_to performance_test(@performance_test)
+            redirect_to performance_test_path(@performance_test)
         else
             render :edit
         end 
@@ -36,6 +38,11 @@ class PerformanceTestsController < ApplicationController
 
     def destroy
         @performance_test.destroy
+        redirect_to performance_tests_path
+    end
+
+    def handle_performance_test_not_found
+        flash[:error] = "You are not authorized to edit performance tests you did not create."
         redirect_to performance_tests_path
     end
 
