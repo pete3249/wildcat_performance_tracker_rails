@@ -1,11 +1,11 @@
 <h1><%= @student.name %></h1>
+<p>Graduation Year: <%= @student.grad_year %></p>
 
 <p><%= link_to "Edit Student", edit_student_path(@student) %></p>
 
 <!-- Can also use form_tag option 
 <%= form_tag(student_path(@student), method: :delete) do %>
     <%= submit_tag "Delete Student "%>
-<% end %> 
--->
+<% end %> -->
 
 <%= button_to "Delete Student", { action: "destroy"}, method: :delete, data: { confirm: "Are you sure?"} %>
