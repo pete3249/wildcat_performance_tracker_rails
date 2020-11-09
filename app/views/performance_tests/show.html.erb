@@ -1,0 +1,6 @@
+<h1><%= @performance_test.student.name %></h1>
+<p><%= test_name(@performance_test)%></p>
+<p><%= @performance_test.result %></p>
+<p><%= @performance_test.notes %></p>
+
+<button><%= link_to "Edit Performance Test", edit_performance_test_path(@performance_test) %></button>
