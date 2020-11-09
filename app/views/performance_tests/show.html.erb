@@ -1,6 +1,13 @@
-<h1><%= @performance_test.student.name %></h1>
-<p><%= test_name(@performance_test)%></p>
-<p><%= @performance_test.result %></p>
-<p><%= @performance_test.notes %></p>
+<h1>Performance Test Details</h1>
 
-<button><%= link_to "Edit Performance Test", edit_performance_test_path(@performance_test) %></button>
+<p>Student: <%= @performance_test.student.name %></p>
+<p>Test: <%= test_name(@performance_test)%></p>
+<p>Result: <%= @performance_test.result %></p>
+<p>Date: <%= @performance_test.date_taken.strftime('%b %d, %Y') %></p>
+
+<% if @performance_test.notes %>
+    <p><%= @performance_test.notes %></p>
+<% end %>
+
+<%= button_to "Edit Performance Test", { action: "edit"}, method: :get %>
+<%= button_to "Delete Performance Test", { action: "destroy"}, method: :delete, data: { confirm: "Are you sure?"} %>
