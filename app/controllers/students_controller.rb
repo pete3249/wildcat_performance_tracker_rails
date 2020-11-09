@@ -1,6 +1,8 @@
 class StudentsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_student, only: [:show, :edit, :update, :destroy]
+    
+    rescue_from ActiveRecord::RecordNotFound, with: :handle_student_not_found
 
     def index
         @students = Student.all
@@ -36,6 +38,11 @@ class StudentsController < ApplicationController
 
     def destroy
         @student.destroy
+        redirect_to students_path
+    end
+
+    def handle_student_not_found
+        flash[:error] = "Student not found"
         redirect_to students_path
     end
 
