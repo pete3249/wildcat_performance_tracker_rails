@@ -5,7 +5,11 @@ class StudentsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :handle_student_not_found
 
     def index
-        @students = Student.all
+        if params[:user_id]
+            @students = User.find_by(id: params[:user_id]).students
+        else 
+            @students = Student.all
+        end 
     end
 
     def show
