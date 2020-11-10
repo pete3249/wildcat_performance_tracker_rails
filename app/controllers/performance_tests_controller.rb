@@ -1,19 +1,31 @@
 class PerformanceTestsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_performance_test, only: [:edit, :update, :destroy]
-    
+
     rescue_from ActiveRecord::RecordNotFound, with: :handle_performance_test_not_found
 
     def index
-        @performance_tests = PerformanceTest.all
+        @student = Student.find_by(id: params[:student_id])
+        if @student
+            @performance_tests = @student.performance_tests
+        else
+            @performance_tests = PerformanceTest.all
+        end 
     end
 
     def show
-        @performance_test = PerformanceTest.find(params[:id])
+        @student = Student.find_by(id: params[:student_id])
+        @performance_test = @student.performance_tests.find_by(id: params[:id])
     end
 
     def new
-        @performance_test = PerformanceTest.new
+        @student = Student.find_by(id: params[:student_id])
+        if @student
+            @performance_test = @student.performance_tests.build(student_id: params[:student_id])
+        else
+            @performance_test = PerformanceTest.new
+        end 
+        
     end 
 
     def create
