@@ -2,8 +2,7 @@
 
 <%= button_to "Add Student", { action: "new"}, method: :get %>
 
-<% @students.each do |student|%>
+<% @students.uniq.each do |student|%>
     <p><%= link_to student.name, student_path(student) %></p>
 <% end %>
-
 
