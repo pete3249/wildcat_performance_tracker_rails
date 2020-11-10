@@ -1,5 +1,5 @@
 <h1><%= @student.name %></h1>
-<p>Graduation Year: <%= @student.grad_year %></p>
+<p>Class of <%= @student.grad_year %></p>
 
 <!-- Can also use form_tag option 
 <%= form_tag(student_path(@student), method: :delete) do %>
@@ -9,3 +9,5 @@
 <%= button_to "Edit Student", { action: "edit"}, method: :get, form: {style: 'display:inline-block;'} %>
 
 <%= button_to "Delete Student", { action: "destroy"}, method: :delete, data: { confirm: "Are you sure?"}, form: {style: 'display:inline-block;'} %>
+
+<p><%= link_to "#{@student.name}'s Performance Tests", student_performance_tests_path(@student)%></p>
