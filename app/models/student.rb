@@ -6,4 +6,8 @@ class Student < ApplicationRecord
     validates :name, :grad_year, presence: true
     validates :name, uniqueness: { scope: [:grad_year], message: "and graduation year match an existing student"}
 
+    def self.by_grad_year(year)
+        where(grad_year: year)
+    end 
+
 end
