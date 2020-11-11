@@ -1,6 +1,18 @@
 <h1>Current Students</h1>
 
-<%= button_to "Add Student", { action: "new"}, method: :get %>
+<p><%= button_to "Add Student", { action: "new"}, method: :get %></p>
+
+<%= form_tag(students_path, method: 'get') do %>
+    <label for="filter_by_year">Filter by Year</label>
+    <select name="filter_by_year">
+        <option <%= 'selected' if params[:filter_by_year] == '' %> value="">All</option>
+        <option <%= 'selected' if params[:filter_by_year] == '2021' %> value="2021">Seniors</option>
+        <option <%= 'selected' if params[:filter_by_year] == '2022' %> value="2022">Juniors</option>
+        <option <%= 'selected' if params[:filter_by_year] == '2023' %> value="2023">Sophmores</option>
+        <option <%= 'selected' if params[:filter_by_year] == '2024' %> value="2024">Freshman</option>
+    </select>
+    <%= submit_tag 'Filter'%>
+<% end %>
 
 <% @students.uniq.each do |student|%>
     <p><%= link_to student.name, student_path(student) %></p>
