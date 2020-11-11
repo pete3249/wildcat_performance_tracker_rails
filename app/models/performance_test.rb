@@ -5,7 +5,7 @@ class PerformanceTest < ApplicationRecord
 
   validates :result, :date_taken, presence: true
   validates :result, uniqueness: { scope: [:date_taken, :test_type, :user_id], message: "Performance test has already been recorded for this student."}
-  
+
   def self.by_test_type(test_type)
     where(test_type: test_type)
   end 
@@ -25,5 +25,13 @@ class PerformanceTest < ApplicationRecord
   def self.old
     order(date_taken: :asc)
   end
+
+  def self.top_scores
+    order("result DESC").limit(3)
+  end 
+
+  def self.top_sprinting_scores
+    order("result ASC").limit(3)
+  end 
 
 end
