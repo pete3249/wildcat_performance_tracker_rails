@@ -32,7 +32,7 @@ class PerformanceTestsController < ApplicationController
     def create
         @performance_test = current_user.performance_tests.build(performance_test_params)
         if @performance_test.save
-            redirect_to performance_test_path(@performance_test)
+            redirect_to student_performance_test_path(@performance_test.student, @performance_test)
         else
             render :new
         end 
@@ -43,7 +43,7 @@ class PerformanceTestsController < ApplicationController
 
     def update
         if @performance_test.update(performance_test_params)
-            redirect_to performance_test_path(@performance_test)
+            redirect_to student_performance_test_path(@performance_test.student, @performance_test)
         else
             render :edit
         end 
@@ -85,7 +85,6 @@ class PerformanceTestsController < ApplicationController
         elsif params[:sort] == "old"
             @performance_tests = @performance_tests.old
         end 
-
     end
 
 end
