@@ -1,0 +1,23 @@
+ <h1>Performance Tests</h1>
+
+<%= form_tag(performance_tests_path, method: 'get') do %>
+    <label for="filter_by_type">Filter by Type</label>
+    <select name="filter_by_type">
+        <option <%= 'selected' if params[:filter_by_type] == '' %> value="">All</option>
+        <option <%= 'selected' if params[:filter_by_type] == 'vertical' %> value="vertical">Vertical Jump</option>
+        <option <%= 'selected' if params[:filter_by_type] == 'broad' %> value="broad">Broad Jump</option>
+        <option <%= 'selected' if params[:filter_by_type] == '40' %> value="40">40 Meter Sprint</option>
+        <option <%= 'selected' if params[:filter_by_type] == 'shuttle' %> value="shuttle">Shuttle Run</option>
+    </select>
+    <label for="sort">Filter by Date</label>
+    <select name="sort">
+        <option <%= 'selected' if params[:sort] == '' %> value="">None</option>
+        <option <%= 'selected' if params[:sort] == 'most_recent' %> value="most_recent">Most Recent</option>
+        <option <%= 'selected' if params[:sort] == 'old' %> value="old">Old</option>
+    </select>
+    <%= submit_tag 'Filter'%>
+<% end %>
+
+<% @performance_tests.each do |performance_test| %>
+    <p><%= link_to performance_test.student.name, student_path(performance_test.student) %>: <%= link_to performance_test.test_type.name, test_type_path(performance_test.test_type) %> - <%= link_to performance_test.result, student_performance_test_path(performance_test.student, performance_test) %></p>
+<% end %>
