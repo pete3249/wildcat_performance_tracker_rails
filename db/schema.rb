@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_000514) do
+ActiveRecord::Schema.define(version: 2020_11_11_222943) do
 
   create_table "performance_tests", force: :cascade do |t|
     t.string "notes"
-    t.string "result"
+    t.float "result"
     t.datetime "date_taken"
     t.integer "user_id", null: false
     t.integer "student_id", null: false
