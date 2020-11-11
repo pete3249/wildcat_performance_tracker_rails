@@ -4,10 +4,12 @@
 <p>Date: <%= @performance_test.date_taken.strftime('%b %d, %Y') %></p>
 
 <% if @performance_test.notes %>
-    <p><%= @performance_test.notes %></p>
+    <p>Notes: <%= @performance_test.notes %></p>
 <% end %>
 
 <%= button_to "Edit Test", { action: "edit"}, method: :get, form: {style: 'display:inline-block;'} %>
 <%= button_to "Delete Test", { action: "destroy"}, method: :delete, data: { confirm: "Are you sure?"}, form: {style: 'display:inline-block;'} %>
 
 <p><%= link_to "#{@student.name}'s Performance Tests", student_performance_tests_path(@student)%></p>
+
+<%= button_to "Add Performance Test", { action: "new"}, method: :get %>
