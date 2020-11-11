@@ -1,15 +1,7 @@
 <% if @student %>
-    <h1><%= @student.name %>: All Performance Tests</h1>
-    <% @performance_tests.each do |performance_test| %>
-        <ul>
-            <li><%= performance_test.test_type.name %>: <%= link_to performance_test.result, student_performance_test_path(performance_test.student, performance_test) %>
-        </ul>
-    <% end %>
+    <%= render partial: 'student_tests', locals: { performance_test: @performance_test }%>
 <% else %>
-    <h1>Performance Tests</h1>
-    <% @performance_tests.each do |performance_test| %>
-        <p><%= link_to performance_test.student.name, student_path(performance_test.student) %>: <%= link_to performance_test.test_type.name, test_type_path(performance_test.test_type) %> - <%= link_to performance_test.result, student_performance_test_path(performance_test.student, performance_test) %></p>
-    <% end %>
+    <%= render partial: 'all_tests', locals: { performance_test: @performance_test }%>
 <% end %>
 
 <%= button_to "Add Performance Test", { action: "new"}, method: :get %>
