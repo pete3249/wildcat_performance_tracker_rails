@@ -1,6 +1,4 @@
-<h1>Current Students</h1>
-
-<p><%= button_to "Add Student", { action: "new"}, method: :get %></p>
+<h1>Students</h1>
 
 <%= form_tag(students_path, method: 'get') do %>
     <label for="filter_by_year">Filter by Year</label>
@@ -14,7 +12,14 @@
     <%= submit_tag 'Filter'%>
 <% end %>
 
-<% @students.uniq.each do |student|%>
+<% @students.each do |student|%>
     <p><%= link_to student.name, student_path(student) %></p>
+    <% if !student.performance_tests.empty? %>
+        <ul>
+            <li>Latest: <%= student.performance_tests.latest.test_type.name %> (<%= student.performance_tests.latest.result %>) <%= student.performance_tests.latest.date_taken.strftime('%b %Y') %></li>
+        </ul>
+    <% end %>
 <% end %>
+
+<p><%= button_to "Add Student", { action: "new"}, method: :get %></p>
 
