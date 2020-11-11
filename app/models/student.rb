@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-    has_many :performance_tests
+    has_many :performance_tests, :dependent => :destroy
     has_many :users, through: :performance_tests
     has_many :test_types, through: :performance_tests
 
@@ -10,4 +10,8 @@ class Student < ApplicationRecord
         where(grad_year: year)
     end 
 
+    def self.alphabetical
+        order("name ASC")
+    end 
+   
 end
