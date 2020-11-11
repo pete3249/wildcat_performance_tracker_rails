@@ -10,7 +10,8 @@ class PerformanceTestsController < ApplicationController
             @performance_tests = @student.performance_tests
         else
             @performance_tests = PerformanceTest.all
-        end 
+        end
+        filter_options 
     end
 
     def show
@@ -66,6 +67,25 @@ class PerformanceTestsController < ApplicationController
 
     def set_performance_test
         @performance_test = current_user.performance_tests.find(params[:id])
+    end
+
+    def filter_options
+        if params[:filter_by_type] == "vertical"
+            @performance_tests = @performance_tests.by_test_type(1)
+        elsif params[:filter_by_type] == "broad" 
+            @performance_tests = @performance_tests.by_test_type(2)
+        elsif params[:filter_by_type] == "40" 
+            @performance_tests = @performance_tests.by_test_type(3)
+        elsif params[:filter_by_type] == "shuttle"
+            @performance_tests = @performance_tests.by_test_type(4)
+        end
+
+        if params[:sort] == "most_recent"
+            @performance_tests = @performance_tests.most_recent
+        elsif params[:sort] == "old"
+            @performance_tests = @performance_tests.old
+        end 
+
     end
 
 end
