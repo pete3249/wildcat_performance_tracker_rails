@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
         else 
             @students = Student.all
         end 
+        filter_students
     end
 
     def show
@@ -59,5 +60,17 @@ class StudentsController < ApplicationController
     def set_student
         @student = Student.find(params[:id])
     end
+
+    def filter_students
+        if params[:filter_by_year] == "2021"
+            @students = Student.all.by_grad_year("2021")
+        elsif params[:filter_by_year] == "2022"
+            @students = Student.all.by_grad_year("2022")
+        elsif params[:filter_by_year] == "2023"
+            @students = Student.all.by_grad_year("2023")
+        elsif params[:filter_by_year] == "2024"
+            @students = Student.all.by_grad_year("2024")
+        end 
+    end 
 
 end
