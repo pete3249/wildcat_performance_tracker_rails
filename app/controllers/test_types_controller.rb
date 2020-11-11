@@ -9,6 +9,7 @@ class TestTypesController < ApplicationController
     end
 
     def show
+        filter_tests
     end
 
     def new
@@ -50,5 +51,17 @@ class TestTypesController < ApplicationController
     def set_test_type
         @test_type = TestType.find(params[:id])
     end
+
+    def filter_tests
+        if params[:rank] == "top_scores"
+            if params[:id] == "1" || params[:id] == "2"
+                @performance_tests = @test_type.performance_tests.top_scores
+            elsif params[:id] == "3" || params[:id] == "4"
+                @performance_tests = @test_type.performance_tests.top_sprinting_scores
+            end 
+        else
+            @performance_tests = @test_type.performance_tests
+        end 
+    end 
 
 end
