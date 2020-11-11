@@ -1,0 +1,7 @@
+<h1><%= @student.name %>: All Performance Tests</h1>
+
+<% @performance_tests.each do |performance_test| %>
+    <ul>
+        <li><%= performance_test.test_type.name %>: <%= link_to performance_test.result, student_performance_test_path(performance_test.student, performance_test) %>
+    </ul>
+<% end %>
