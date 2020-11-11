@@ -12,7 +12,7 @@
     <%= submit_tag 'Filter'%>
 <% end %>
 
-<% @students.each do |student|%>
+<% @students.alphabetical.each do |student|%>
     <p><%= link_to student.name, student_path(student) %></p>
     <% if !student.performance_tests.empty? %>
         <ul>
@@ -22,4 +22,3 @@
 <% end %>
 
 <p><%= button_to "Add Student", { action: "new"}, method: :get %></p>
-
