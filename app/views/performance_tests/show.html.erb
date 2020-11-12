@@ -1,7 +1,7 @@
 <h1><%= @student.name %>: <%= @performance_test.test_type.name %></h1>
 
 <p>Result: <%= @performance_test.result %></p>
-<p>Date: <%= @performance_test.date_taken.strftime('%b %d, %Y') %></p>
+<p>Date: <%= formatted_time(@performance_test) %></p>
 
 <% if @performance_test.notes %>
     <p>Notes: <%= @performance_test.notes %></p>
