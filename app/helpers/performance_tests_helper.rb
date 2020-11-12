@@ -1,6 +1,7 @@
 module PerformanceTestsHelper
 
-    # def test_name(performance_test)
-    #     performance_test.test_type.name
-    # end 
+    def formatted_time(test)
+        test.date_taken.strftime('%b %Y')
+    end 
+
 end

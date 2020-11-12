@@ -17,7 +17,6 @@ class User < ApplicationRecord
       u.avatar_url = avatar_url
       u.password = SecureRandom.hex
     end
-    byebug
     user.update(uid: uid, full_name: full_name, avatar_url: avatar_url)
     user
   end
