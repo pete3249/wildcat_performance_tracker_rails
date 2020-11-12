@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.first_or_create(name: "Katelyn Peterson", email: "katelynpeterson@westminster.net", password: "Sawyer123$")
+user = User.first_or_create(full_name: "Katelyn Peterson", email: "katelynpeterson@westminster.net", password: "Sawyer123$")
 
 student = Student.first_or_create(name: "Connor Wesselman", grad_year: "2021")
 

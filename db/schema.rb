@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_003858) do
+ActiveRecord::Schema.define(version: 2020_11_12_135858) do
 
   create_table "performance_tests", force: :cascade do |t|
     t.string "notes"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2020_11_12_003858) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
