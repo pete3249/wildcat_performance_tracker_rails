@@ -4,12 +4,8 @@ class StudentsController < ApplicationController
     
     rescue_from ActiveRecord::RecordNotFound, with: :handle_student_not_found
 
-    def index
-        if params[:user_id]
-            @students = User.find_by(id: params[:user_id]).students
-        else 
-            @students = Student.all
-        end 
+    def index  
+        @students = Student.all
         filter_students
     end
 
