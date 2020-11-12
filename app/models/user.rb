@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :students, through: :performance_tests
   has_many :test_types, through: :performance_tests
   
-  validates :name, presence: true
+  validates :full_name, presence: true
 
   def self.from_google(uid:, email:, full_name:, avatar_url:)
     user = User.find_or_create_by(email: email) do |u|
@@ -16,9 +16,10 @@ class User < ApplicationRecord
       u.full_name = full_name
       u.avatar_url = avatar_url
       u.password = SecureRandom.hex
-      # u.name = full_name
     end
+    byebug
     user.update(uid: uid, full_name: full_name, avatar_url: avatar_url)
+    user
   end
   
 end
