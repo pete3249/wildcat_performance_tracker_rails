@@ -2,12 +2,23 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
+         
   has_many :performance_tests
   has_many :students, through: :performance_tests
   has_many :test_types, through: :performance_tests
   
   validates :name, presence: true
+
+  def self.from_google(uid:, email:, full_name:, avatar_url:)
+    user = User.find_or_create_by(email: email) do |u|
+      u.uid = uid
+      u.full_name = full_name
+      u.avatar_url = avatar_url
+      u.password = SecureRandom.hex
+      # u.name = full_name
+    end
+    user.update(uid: uid, full_name: full_name, avatar_url: avatar_url)
+  end
   
 end
