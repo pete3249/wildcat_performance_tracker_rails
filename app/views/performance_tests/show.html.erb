@@ -3,7 +3,7 @@
 <p>Result: <%= @performance_test.result %></p>
 <p>Date: <%= formatted_time(@performance_test) %></p>
 
-<% if @performance_test.notes %>
+<% if !@performance_test.notes.empty? %>
     <p>Notes: <%= @performance_test.notes %></p>
 <% end %>
 
