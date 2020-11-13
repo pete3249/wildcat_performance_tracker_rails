@@ -1,7 +1,7 @@
 class CreatePerformanceTests < ActiveRecord::Migration[6.0]
   def change
     create_table :performance_tests do |t|
-      t.string :notes
+      t.string :notes, default: nil
       t.string :result
       t.datetime :date_taken
       t.references :user, null: false, foreign_key: true
