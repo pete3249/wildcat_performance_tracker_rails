@@ -2,11 +2,9 @@
 
 Specs:
 [x] Using Ruby on Rails for the project
-[x] Relationships
-    [x] Include at least one has_many relationship
-    [x] Include at least one belongs_to relationship
-    [x] Include at least two has_many through relationships
-    [x] Include at least one many-to-many relationship 
+
+Relationships
+[x] Include at least one has_many relationship, one belongs_to relationship, two has_many through relationships, Include at least one many-to-many relationship 
   
 ``` rb
 class User < ApplicationRecord
