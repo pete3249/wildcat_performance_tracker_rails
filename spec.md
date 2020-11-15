@@ -1,9 +1,9 @@
 ## Specifications for the Rails Assessment
 
-Specs:
+Specs:  
 [x] Using Ruby on Rails for the project
 
-Relationships
+Relationships  
 [x] Include at least one has_many relationship, one belongs_to relationship, two has_many through relationships, Include at least one many-to-many relationship 
   
 ``` rb
