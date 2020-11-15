@@ -17,10 +17,6 @@ class PerformanceTest < ApplicationRecord
   def self.most_recent
     order(date_taken: :desc)
   end 
-
-  def self.oldest
-    order(date_taken: :asc).first
-  end
   
   def self.old
     order(date_taken: :asc)
