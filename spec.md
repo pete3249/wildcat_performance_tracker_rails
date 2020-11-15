@@ -1,10 +1,10 @@
 ## Specifications for the Rails Assessment
 
 Specs:  
-[x] Using Ruby on Rails for the project
+- [x] Using Ruby on Rails for the project
 
 Relationships  
-[x] Include at least one has_many relationship, one belongs_to relationship, two has_many through relationships, Include at least one many-to-many relationship 
+- [x] Include at least one has_many relationship, one belongs_to relationship, two has_many through relationships, Include at least one many-to-many relationship 
   
 ``` rb
 class User < ApplicationRecord
@@ -30,7 +30,7 @@ class PerformanceTest < ApplicationRecord
 end 
 ```
 
-[x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user
+- [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user
 
  ```rb
  create_table "performance_tests", force: :cascade do |t|
@@ -48,7 +48,7 @@ end
   end
 ```
  
-[x] Include reasonable validations for simple model objects.
+- [x] Include reasonable validations for simple model objects.
 
 ```rb
 class User < ApplicationRecord
@@ -70,7 +70,7 @@ class PerformanceTest < ApplicationRecord
 end
 ```
 
-[x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 
 ```rb
 class PerformanceTest < ApplicationRecord
@@ -140,7 +140,7 @@ class PerformanceTest < ApplicationRecord
 end
 ```
 
-[x] Include signup, login, and logout: I used the github/devise documentation to configure devise for sign up, sign in, and logout. 
+- [x] Include signup, login, and logout: I used the github/devise documentation to configure devise for sign up, sign in, and logout. 
 
 ```rb
 <h2>Sign Up</h2>
@@ -206,9 +206,9 @@ end
 <%= render "devise/shared/links" %>
 ```
 
-[x] Include third party signup/login: I used OmniAuth and devise for Oauth. Since my users are teachers/coaches who all have school emails, I decided to use google for authorization.
+- [x] Include third party signup/login: I used OmniAuth and devise for Oauth. Since my users are teachers/coaches who all have school emails, I decided to use google for authorization.
 
-[x] Include nested resource show or index and nested resource "new" form
+- [x] Include nested resource show or index and nested resource "new" form
 
 config/routes.rb
 ```rb
@@ -221,7 +221,7 @@ new_student_performance_test_path '/students/:student_id/performance_tests/new' 
 student_performance_test_path '/students/:student_id/performance_tests/:id' (performance_tests - show)
 ```
 
-[x] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
 views/performance_tests/new.html.erb
 ```rb
@@ -283,7 +283,7 @@ views/shared/error_messages.html.erb
 ```
 
 Confirm:
-[x] The application is pretty DRY
-[x] Limited logic in controllers
-[x] Views use helper methods if appropriate
-[x] Views use partials if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate
