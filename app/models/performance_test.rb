@@ -53,6 +53,15 @@ class PerformanceTest < ApplicationRecord
         results = results.old
     end 
     results
-end
+  end
+
+  def self.filter_tests(options)
+    if options[:id] == "1" || options[:id] == "2"
+        tests = self.top_scores
+    elsif options[:id] == "3" || options[:id] == "4"
+        tests = self.top_sprinting_scores
+    end 
+    tests
+  end 
 
 end
