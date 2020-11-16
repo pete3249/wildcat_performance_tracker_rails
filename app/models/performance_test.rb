@@ -61,7 +61,6 @@ class PerformanceTest < ApplicationRecord
     elsif options[:id] == "3" || options[:id] == "4"
         tests = self.top_sprinting_scores
     end 
-    tests
   end 
 
 end
