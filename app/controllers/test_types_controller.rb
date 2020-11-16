@@ -9,11 +9,8 @@ class TestTypesController < ApplicationController
     end
 
     def show
-        if params[:rank] == "top_scores"
-            @performance_tests = @test_type.performance_tests.filter_tests(filter_test_type_params)
-        else
-            @performance_tests = @test_type.performance_tests
-        end
+        @performance_tests = @test_type.performance_tests
+        @performance_tests = @test_type.performance_tests.filter_tests(filter_test_type_params) if params[:rank] == "top_scores"
     end
 
     def new
