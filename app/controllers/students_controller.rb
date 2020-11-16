@@ -50,7 +50,17 @@ class StudentsController < ApplicationController
     private
 
     def student_params
-        params.require(:student).permit(:name, :grad_year)
+        params.require(:student).permit(
+            :name, 
+            :grad_year, 
+            performance_tests_attributes:[
+                :test_type_id,
+                :result,
+                :date_taken,
+                :notes,
+                :user_id
+            ]
+        )
     end 
 
     def filter_student_params
