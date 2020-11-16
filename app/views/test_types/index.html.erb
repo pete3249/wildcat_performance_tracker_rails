@@ -1,6 +1,6 @@
-<h1>All Test Types</h1>
+<h1>Performance Tests By Category</h1>
 
-<%= button_to "Add Test Type", { action: "new"}, method: :get %>
+<%= button_to "Add New Test Type", { action: "new"}, method: :get %>
 
 <% @test_types.each do |type| %>
     <p><%= link_to type.name, test_type_path(type) %></p>
