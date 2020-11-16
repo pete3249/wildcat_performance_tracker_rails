@@ -1,2 +1,17 @@
 <h1>Edit Student</h1>
-<%= render partial: 'form', locals: {student: @student}%>
+
+<%= form_for @student do |f|%>
+    <%= show_errors_for(@student)%>
+    
+    <div>
+        <%= f.label :name, "Name:" %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label :grad_year, "Graduation year:" %>
+        <%= f.text_field :grad_year %>
+    </div>
+
+    <%= f.submit %>
+<% end %>
