@@ -1,2 +1,45 @@
 <h1>New Student</h1>
-<%= render partial: 'form', locals: {student: @student}%>
+
+<%= form_for @student do |f|%>
+    <%= show_errors_for(@student)%>
+    
+    <div>
+        <%= f.label :name, "Name:" %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label :grad_year, "Graduation year:" %>
+        <%= f.text_field :grad_year %>
+    </div>
+
+    <h2>Add Performance Test</h2>
+
+    <%= f.fields_for :performance_tests, @student.performance_tests.build do |performance_test_fields| %>
+        <div>
+            <%= performance_test_fields.label :test_type_id, "Test Type:" %>
+            <%= performance_test_fields.collection_select :test_type_id, TestType.all, :id, :name, prompt: true %>
+        </div>
+        
+        <div>
+            <%= performance_test_fields.label :result, "Result:" %>
+            <%= performance_test_fields.text_field :result %>
+        </div>
+
+        <div>
+            <%= performance_test_fields.label :date_taken, "Date:" %>
+            <%= performance_test_fields.date_select :date_taken %>
+        </div>
+        
+        <div>
+            <%= performance_test_fields.label :notes, "Notes:" %>
+            <%= performance_test_fields.text_field :notes %>
+        </div>
+        <br>
+        <%= performance_test_fields.hidden_field :user_id, :value => current_user.id %>
+
+    <% end %>
+    
+    <%= f.submit %>
+
+<% end %>
