@@ -14,9 +14,9 @@
 
 <% @students.alphabetical.each do |student|%>
     <p><%= link_to student.name, student_path(student) %></p>
-    <% if !student.performance_tests.empty? %>
+    <% if student.performance_tests.present? %>
         <ul>
-            <li>Latest: <%= student.performance_tests.latest.test_type.name %> (<%= student.performance_tests.latest.result %>) <%= student.performance_tests.latest.date_taken.strftime('%b %Y') %></li>
+            <li>Latest: <%= student.performance_tests.latest.test_name %> (<%= student.performance_tests.latest.result %>) <%= formatted_time(student.performance_tests.latest) %></li>
         </ul>
     <% end %>
 <% end %>
