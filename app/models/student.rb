@@ -13,5 +13,18 @@ class Student < ApplicationRecord
     def self.alphabetical
         order("name ASC")
     end 
+
+    def self.filter_students(options)
+        if options[:filter_by_year] == "2021"
+            students = self.by_grad_year("2021")
+        elsif options[:filter_by_year] == "2022"
+            students = self.by_grad_year("2022")
+        elsif options[:filter_by_year] == "2023"
+            students = self.by_grad_year("2023")
+        elsif options[:filter_by_year] == "2024"
+            students = self.by_grad_year("2024") 
+        end 
+        students
+    end 
    
 end

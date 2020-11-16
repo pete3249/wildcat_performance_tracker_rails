@@ -4,9 +4,9 @@ class StudentsController < ApplicationController
     
     rescue_from ActiveRecord::RecordNotFound, with: :handle_student_not_found
 
-    def index  
-        @students = Student.all
-        filter_students
+    def index 
+        @students = Student.all 
+        @students = @students.filter_students(filter_student_params) if filter_student_params.present?
     end
 
     def show
@@ -53,20 +53,12 @@ class StudentsController < ApplicationController
         params.require(:student).permit(:name, :grad_year)
     end 
 
+    def filter_student_params
+        params.permit(:filter_by_year)
+    end 
+
     def set_student
         @student = Student.find(params[:id])
     end
-
-    def filter_students
-        if params[:filter_by_year] == "2021"
-            @students = Student.all.by_grad_year("2021")
-        elsif params[:filter_by_year] == "2022"
-            @students = Student.all.by_grad_year("2022")
-        elsif params[:filter_by_year] == "2023"
-            @students = Student.all.by_grad_year("2023")
-        elsif params[:filter_by_year] == "2024"
-            @students = Student.all.by_grad_year("2024")
-        end 
-    end 
 
 end
