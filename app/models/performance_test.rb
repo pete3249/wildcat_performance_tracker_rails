@@ -6,6 +6,10 @@ class PerformanceTest < ApplicationRecord
   validates :result, :date_taken, presence: true
   validates :result, uniqueness: { scope: [:date_taken, :test_type, :user_id], message: "Performance test has already been recorded for this student."}
 
+  def test_name
+    self.test_type.name 
+  end 
+  
   def self.by_test_type(test_type)
     where(test_type: test_type)
   end 
