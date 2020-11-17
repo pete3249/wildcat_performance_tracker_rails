@@ -22,6 +22,6 @@
 <% end %>
 
 <% @performance_tests.each do |performance_test| %>
-    <p><%= link_to performance_test.student.name, student_path(performance_test.student) %>: <%= performance_test.test_type.name %> (<%= link_to performance_test.result, student_performance_test_path(performance_test.student, performance_test) %>) <%= formatted_time(performance_test) %></p>
+    <p><%= link_to performance_test.student.name, student_path(performance_test.student) %>: <%= performance_test.test_name %> (<%= link_to add_units(performance_test), student_performance_test_path(performance_test.student, performance_test) %>) <%= formatted_time(performance_test) %></p>
 <% end %>
 
