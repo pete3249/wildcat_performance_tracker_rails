@@ -1,13 +1,20 @@
 <nav>
     <% if user_signed_in? %>
-        <%= link_to "Students", students_url %>
-        <%= link_to "Performance Tests", performance_tests_url %>
-        <%= link_to "Tests by Type", test_types_url %>
-        <%= form_tag(destroy_user_session_path, method: :delete, style: 'display:inline-block;') do %>
-          <% submit_tag "Sign Out" %>
-        <% end %>
+        <ul>
+            <li><%= link_to "Students", students_url %></li>
+            <li><%= link_to "Performance Tests", performance_tests_url %></li>
+            <li><%= link_to "Tests by Type", test_types_url %></li>
+            <li style="float:right">
+                <%= form_tag(destroy_user_session_path, method: :delete, class: "login") do %>
+                    <% submit_tag "Sign Out" %>
+                <% end %>
+            </li>
+        </ul>
+        
     <% else %>
-        <%= link_to "Sign Up", new_user_registration_url %>
-        <%= link_to "Sign In", user_session_url %>
+        <ul>
+            <li style="float:right"><%= link_to "Sign Up", new_user_registration_url %></li>
+            <li style="float:right"><%= link_to "Sign In", user_session_url %></li>
+        </ul>
     <% end %>
 </nav>
