@@ -1,9 +1,9 @@
-<h1><%= @student.name %>: <%= @performance_test.test_type.name %></h1>
+<h1><%= @student.name %>: <%= @performance_test.test_name %></h1>
 
-<p>Result: <%= @performance_test.result %></p>
+<p>Result: <%= add_units(@performance_test) %></p>
 <p>Date: <%= formatted_time(@performance_test) %></p>
 
-<% if !@performance_test.notes.empty? %>
+<% if @performance_test.notes.present? %>
     <p>Notes: <%= @performance_test.notes %></p>
 <% end %>
 
