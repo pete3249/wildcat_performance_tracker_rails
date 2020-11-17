@@ -1,13 +1,29 @@
-<nav>
-    <% if user_signed_in? %>
-        <%= link_to "Students", students_url %>
-        <%= link_to "Performance Tests", performance_tests_url %>
-        <%= link_to "Tests by Type", test_types_url %>
-        <%= form_tag(destroy_user_session_path, method: :delete, style: 'display:inline-block;') do %>
-          <% submit_tag "Sign Out" %>
-        <% end %>
-    <% else %>
-        <%= link_to "Sign Up", new_user_registration_url %>
-        <%= link_to "Sign In", user_session_url %>
+<nav class="flex items-center justify-between flex-wrap bg-green-900 p-3">
+  <div class="flex items-center flex-shrink-0 text-white mr-6">
+    <span class="font-semibold text-xl tracking-tight">Westminster Strength and Conditioning</span>
+  </div>
+  <div class="block lg:hidden">
+    <button class="flex items-center px-3 py-2 border rounded text-black border-teal-400 hover:text-black hover:border-black">
+      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Westminster Strength & Conditioning</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+    </button>
+  </div>
+  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+    <div class="text-sm lg:flex-grow">
+        <% if user_signed_in? %>
+            <a href="/students" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Students</a>
+            <a href="/performance_tests" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">Tests</a>
+            <a href="/test_types" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">Tests by Type</a>
+
+            <%= form_tag(destroy_user_session_path, method: :delete, style: 'display:inline-block;') do %>
+                <% submit_tag "Sign Out" %>
+            <% end %>
+        <% else %>
+            <%= link_to "Sign Up", new_user_registration_url %>
+            <%= link_to "Sign In", user_session_url %>
     <% end %>
+
+    </div>
+  </div>
 </nav>
+
+    

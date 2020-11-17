@@ -6,10 +6,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   </head>
 
-  <body>
+  <body class=" ">
     <%= render partial: 'shared/navbar'%>
     
   <!-- Ensures that messages Devise generates, actually show up in HTML responses. Inserted into after adding Devise configuration -->
