@@ -10,7 +10,7 @@
 <% end %>
 
 <% @performance_tests.each do |performance_test|%>
-    <p><%= link_to performance_test.student.name, student_performance_test_path(performance_test.student, performance_test) %>: <%= add_units(performance_test) %> </p>
+    <p><%= link_to performance_test.student.name, student_performance_test_path(performance_test.student, performance_test) %>: <%= add_units(performance_test) %></p>
 <% end %>
 
 <%= button_to "Edit Test Type", { action: "edit"}, method: :get %>
