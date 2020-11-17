@@ -11,7 +11,6 @@ class PerformanceTestsController < ApplicationController
         else
             @performance_tests = PerformanceTest.all
         end
-        
         @performance_tests = @performance_tests.filter_options(filter_options_params) if filter_options_params.present?
     end
 
