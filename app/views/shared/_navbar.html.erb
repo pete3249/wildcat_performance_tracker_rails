@@ -2,7 +2,7 @@
     <% if user_signed_in? %>
         <%= link_to "Students", students_url %>
         <%= link_to "Performance Tests", performance_tests_url %>
-        <%= link_to "Categories", test_types_url %>
+        <%= link_to "Tests by Type", test_types_url %>
         <%= form_tag(destroy_user_session_path, method: :delete, style: 'display:inline-block;') do %>
           <% submit_tag "Sign Out" %>
         <% end %>
