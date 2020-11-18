@@ -7,6 +7,7 @@ class StudentsController < ApplicationController
     def index 
         @students = Student.all 
         @students = @students.filter_students(filter_student_params) if filter_student_params.present?
+        @students = @students.search_by_name(params[:search_by_name]) if params[:search_by_name].present?
     end
 
     def show
