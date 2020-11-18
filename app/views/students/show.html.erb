@@ -1,8 +1,10 @@
 <h1><%= @student.name %></h1>
 <p>Class of <%= @student.grad_year %></p>
 
-<%= button_to "Edit Student", { action: "edit"}, method: :get, form: {style: 'display:inline-block;'} %>
-<%= button_to "Delete Student", { action: "destroy"}, method: :delete, data: { confirm: "Are you sure?"}, form: {style: 'display:inline-block;'} %>
+<div class="button1">
+    <%= button_to "Edit Student", { action: "edit"}, method: :get, form: {style: 'display:inline-block;'} %>
+    <%= button_to "Delete Student", { action: "destroy"}, method: :delete, data: { confirm: "Are you sure?"}, form: {style: 'display:inline-block;'} %>
+</div>
 
 <p><%= link_to "#{@student.name}'s Performance Tests", student_performance_tests_path(@student)%></p>
 <p><%= link_to "Add Performance Test", new_student_performance_test_path(@student) %></p>
