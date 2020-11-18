@@ -7,11 +7,20 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      html, body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Comic Sans MS", cursive, sans-serif;
+      }
+    </style>
   </head>
 
   <body>
+    <div class="header">
+      <h1>Westminster Strength & Conditioning</h1>
+    </div>
+
     <%= render partial: 'shared/navbar'%>
-    
+
   <!-- Ensures that messages Devise generates, actually show up in HTML responses. Inserted into after adding Devise configuration -->
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
