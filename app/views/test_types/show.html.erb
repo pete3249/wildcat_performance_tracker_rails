@@ -1,13 +1,15 @@
 <h1><%= @test_type.name %></h1>
 
-<%= form_tag(test_type_path, method: 'get') do %>
-    <label for="rank">Filter Scores</label>
-    <select name="rank">
-        <option <%= 'selected' if params[:rank] == '' %> value="">None</option>
-        <option <%= 'selected' if params[:rank] == 'top_scores' %> value="top_scores">Top Scores</option>
-    </select>
-    <%= submit_tag 'Filter'%>
-<% end %>
+<div class="button1">
+    <%= form_tag(test_type_path, method: 'get') do %>
+        <label for="rank">Filter Scores</label>
+        <select name="rank">
+            <option <%= 'selected' if params[:rank] == '' %> value="">None</option>
+            <option <%= 'selected' if params[:rank] == 'top_scores' %> value="top_scores">Top Scores</option>
+        </select>
+        <%= submit_tag 'Filter'%>
+    <% end %>
+</div>
 
 <% @performance_tests.each do |performance_test|%>
     <p><%= link_to performance_test.student.name, student_performance_test_path(performance_test.student, performance_test) %>: <%= add_units(performance_test) %></p>
