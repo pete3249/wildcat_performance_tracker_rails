@@ -3,7 +3,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
          
   has_many :performance_tests
-  # :dependent => :destroy
   has_many :students, through: :performance_tests
   has_many :test_types, through: :performance_tests
   
