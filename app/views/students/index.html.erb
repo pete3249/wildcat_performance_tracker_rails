@@ -1,7 +1,7 @@
 <h1>Students</h1>
 
 <div class="button1">
-    <%= form_tag(students_path, method: 'get') do %>
+    <%= form_tag(students_path, method: 'get', style: 'display:inline-block;') do %>
         <label for="filter_by_year">Filter by Year</label>
         <select name="filter_by_year">
             <option <%= 'selected' if params[:filter_by_year] == '' %> value="">All</option>
@@ -12,7 +12,14 @@
         </select>
     <%= submit_tag 'Filter'%>
     <% end %>
+
+    <%= form_tag(students_path, method: 'get', style: 'display:inline-block;') do %>
+        <label for="search_by_name">Search By Name</label>
+        <%= text_field_tag :search_by_name %>
+        <%= submit_tag 'Search'%>
+    <% end %>
 </div>
+
 
 <div class="button1">
     <p><%= button_to "Add Student", { action: "new"}, method: :get %></p>
