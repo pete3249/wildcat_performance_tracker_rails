@@ -2,6 +2,7 @@
 
 <p>Result: <%= add_units(@performance_test) %></p>
 <p>Date: <%= formatted_time(@performance_test) %></p>
+<p>Coach: <%= @performance_test.user.full_name %></p>
 
 <% if @performance_test.notes.present? %>
     <p>Notes: <%= @performance_test.notes %></p>
