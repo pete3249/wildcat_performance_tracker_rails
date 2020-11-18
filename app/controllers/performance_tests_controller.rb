@@ -1,11 +1,11 @@
 class PerformanceTestsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_performance_test, only: [:edit, :update, :destroy]
+    before_action :set_student_for_tests, only: [:index, :show, :new]
 
     rescue_from ActiveRecord::RecordNotFound, with: :handle_performance_test_not_found
 
     def index
-        @student = Student.find_by(id: params[:student_id])
         if @student
             @performance_tests = @student.performance_tests
         else
@@ -15,12 +15,10 @@ class PerformanceTestsController < ApplicationController
     end
 
     def show
-        @student = Student.find_by(id: params[:student_id])
         @performance_test = @student.performance_tests.find_by(id: params[:id])
     end
 
     def new
-        @student = Student.find_by(id: params[:student_id])
         if @student
             @performance_test = @student.performance_tests.build(student_id: params[:student_id])
         else
@@ -71,6 +69,10 @@ class PerformanceTestsController < ApplicationController
 
     def filter_options_params
         params.permit(:filter_by_type, :sort)
+    end 
+
+    def set_student_for_tests
+        @student = Student.find_by(id: params[:student_id])
     end 
 
 end
