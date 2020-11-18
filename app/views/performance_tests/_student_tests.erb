@@ -1,7 +1,5 @@
 <h1>Performance Tests for: <%= link_to @student.name, student_path(@student) %></h1>
 
 <% @performance_tests.each do |performance_test| %>
-    <ul>
-        <li><%= performance_test.test_name %>: <%= link_to add_units(performance_test), student_performance_test_path(performance_test.student, performance_test) %> (<%= formatted_time(performance_test) %>)</li>
-    </ul>
+    <p><%= performance_test.test_name %>: <%= link_to add_units(performance_test), student_performance_test_path(performance_test.student, performance_test) %> (<%= formatted_time(performance_test) %>)</p>
 <% end %>
