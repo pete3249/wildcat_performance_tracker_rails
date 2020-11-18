@@ -6,10 +6,10 @@
         <label for="filter_by_type">Filter by Type</label>
         <select name="filter_by_type">
             <option <%= 'selected' if params[:filter_by_type] == '' %> value="">All</option>
-            <option <%= 'selected' if params[:filter_by_type] == 'vertical' %> value="vertical">Vertical Jump</option>
-            <option <%= 'selected' if params[:filter_by_type] == 'broad' %> value="broad">Broad Jump</option>
-            <option <%= 'selected' if params[:filter_by_type] == '40' %> value="40">40 Meter Sprint</option>
-            <option <%= 'selected' if params[:filter_by_type] == 'shuttle' %> value="shuttle">Shuttle Run</option>
+            <option <%= 'selected' if params[:filter_by_type] == '1' %> value="1">Vertical Jump</option>
+            <option <%= 'selected' if params[:filter_by_type] == '2' %> value="2">Broad Jump</option>
+            <option <%= 'selected' if params[:filter_by_type] == '3' %> value="3">40 Meter Sprint</option>
+            <option <%= 'selected' if params[:filter_by_type] == '4' %> value="4">Shuttle Run</option>
         </select>
 
         <label for="sort">Filter by Date</label>
