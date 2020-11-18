@@ -35,17 +35,11 @@ class PerformanceTest < ApplicationRecord
   end 
 
   def self.filter_options(options)
-    if options[:filter_by_type] == "vertical"
-        results = self.by_test_type(1)
-    elsif options[:filter_by_type] == "broad" 
-        results = self.by_test_type(2)
-    elsif options[:filter_by_type] == "40" 
-        results = self.by_test_type(3)
-    elsif options[:filter_by_type] == "shuttle"
-        results = self.by_test_type(4)
+    if options[:filter_by_type]
+      results = self.by_test_type(options[:filter_by_type])
     else
-        results = self.all
-    end
+      results = self.all
+    end 
 
     if options[:sort] == "most_recent"
         results = results.most_recent
